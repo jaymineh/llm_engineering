@@ -1,3 +1,4 @@
+import os
 import networkx as nx
 import matplotlib.pyplot as plt
 from typing import List, Dict
@@ -10,7 +11,10 @@ load_dotenv(override=True)
 
 class TokenPredictor:
     def __init__(self, model_name: str):
-        self.client = OpenAI()
+        self.client = OpenAI(
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
+        )
         self.messages = []
         self.predictions = []
         self.model_name = model_name
@@ -33,24 +37,25 @@ class TokenPredictor:
 
         predictions = []
         for chunk in response:
+            if not chunk.choices:
+                continue
             if chunk.choices[0].delta.content:
                 token = chunk.choices[0].delta.content
-                logprobs = chunk.choices[0].logprobs.content[0].top_logprobs
-                logprob_dict = {item.token: item.logprob for item in logprobs}
-
-                # Get top predicted token and probability
-                top_token = token
-                top_prob = logprob_dict[token]
-
-                # Get alternative predictions
                 alternatives = []
-                for alt_token, alt_prob in logprob_dict.items():
-                    if alt_token != token:
-                        alternatives.append((alt_token, math.exp(alt_prob)))
-                alternatives.sort(key=lambda x: x[1], reverse=True)
+                top_prob = 1.0  # fallback if model doesn't return logprobs
+
+                logprobs_data = chunk.choices[0].logprobs
+                if logprobs_data and logprobs_data.content:
+                    top_logprobs = logprobs_data.content[0].top_logprobs
+                    logprob_dict = {item.token: item.logprob for item in top_logprobs}
+                    top_prob = logprob_dict.get(token, 0.0)
+                    for alt_token, alt_prob in logprob_dict.items():
+                        if alt_token != token:
+                            alternatives.append((alt_token, math.exp(alt_prob)))
+                    alternatives.sort(key=lambda x: x[1], reverse=True)
 
                 prediction = {
-                    "token": top_token,
+                    "token": token,
                     "probability": math.exp(top_prob),
                     "alternatives": alternatives[:2],  # Keep top 2 alternatives
                 }

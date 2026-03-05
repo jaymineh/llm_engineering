@@ -1,0 +1,106 @@
+
+Okay.
+
+And this brings us to the conclusion of week three, where at the end of week three, day five.
+
+And that can only mean one thing.
+
+It means it is assignment time.
+
+It is time for an exercise to wrap up the week, and one that can get you to put open source models
+
+to the test.
+
+And here it is one of the the the core use cases of LMS of JNI that can be applied to almost any business
+
+area is generating synthetic data using an LLM to create data sets that you can use in any project,
+
+and building yourself a synthetic data generator, something which you can you can put in something
+
+like, like, um, I want to have example, um, employee records.
+
+I want to have example product definition guides, whatever it might be, be able to describe the kind
+
+of data you need, how you want it structured its purpose, and build something that can generate lots
+
+of these documents.
+
+Uh, that that is something which will be incredibly useful to you, I guarantee it.
+
+So that's the project that I'm going to suggest.
+
+Write some models that can generate data sets, use a variety of different models, use that as your
+
+way of exploring the capabilities of models, and it also will give you nice and varied data set as
+
+well.
+
+So it gives you diverse outputs and diverse experience too, which is what this is all about.
+
+Uh, try quantizing, try not quantizing, try different different shapes and sizes.
+
+And of course, why not make a gradio UI for your product as well so that you can you can look at it
+
+and generate it and maybe even share it with other people at your company, and maybe, maybe post about
+
+it on LinkedIn so I can jump in there and see it myself and try generating synthetic data.
+
+Several students have done and it's great.
+
+It's very impressive.
+
+I used one of those to generate some data, and I've got of course, I've built my own, uh, synthetic
+
+data set generators many times.
+
+So it's a great exercise more than anything else.
+
+Now it's about practice.
+
+The best way to solidify this in your mind is to do it several times.
+
+Then you'll never think twice about the Pad token equals iOS token because you just typed it out or
+
+whatever, and they apply chat templates and all that other stuff, it becomes second nature once you've
+
+done it like 30 times.
+
+So, uh, build your synthetic data set generator and share it and, uh, and and enjoy the process.
+
+And as I say, that's something that is particularly useful because you can use it in your day job.
+
+You can use it with any sort of home projects that you're building.
+
+Models.
+
+It's the utility is so broad.
+
+So a great project to make.
+
+And with that, with that week three is complete and this week was it was definitely getting advanced.
+
+You can now code with frontier models.
+
+You can build an AI assistant, but also you can now build an LLM solution combining frontier and open
+
+source models.
+
+You can use the pipelines but also the model API in hugging face Transformers library.
+
+And you're starting to get some intuition and feel for how neural networks work under the hood for for
+
+the layers of a neural network, for the dimensionality embeddings and the self-attention layer.
+
+Again, you don't need to know this stuff in too much detail, but you need to have good intuition for
+
+it and the basis of an understanding.
+
+And I do hope that you like that inference, that visualization, and that you've played with that a
+
+bit yourself and got that perspective, that very rich understanding of what inference actually entails.
+
+Okay.
+
+Okay.
+
+So that concludes week three.

@@ -1,0 +1,339 @@
+But we've got one more thing to do.
+
+Haha.
+
+I haven't forgotten and I'm sure you haven't either.
+
+Let's do a run time restart session and clear all of our outputs.
+
+Get everything back to scratch again and it's restarting.
+
+We're still on a T4.
+
+We will run this, but the difference is light mode is false.
+
+We are going the whole hog here.
+
+We are going to test this model.
+
+We're going to pick this run name and this revision and see if we can't get a bit more competitive with
+
+GPT for one nano.
+
+Uh, okay.
+
+So again we go through we load in our data set.
+
+It's going to load in the full data set.
+
+We don't actually need all the all the training data.
+
+But but but whatever we'll load that in.
+
+We're then going to load in the base model again and see you in a second when everything is loaded and
+
+we're ready.
+
+Okay.
+
+It's loaded in the total model size is 3.753MB.
+
+And that, of course, is the 2.2MB of the base model.
+
+And then there's like a 1.5 or so gigabytes.
+
+So 2.2GB of base model, 1.56GB of the adapters.
+
+Okay.
+
+And uh, if I print out the fine tuned model, what you'll see here, of course, is that the Lora adapters
+
+are on all of the attention layers.
+
+And they've now got more dimensions, 256 dimensions because R was 256.
+
+But also if you scroll down to the MLP layers, you'll see that they're adapters there as well.
+
+Uh and look you'll see the 0.1 dropout in all other places as well for, for both of these models.
+
+Uh, so there they are.
+
+This is hopefully exactly what you're expecting.
+
+It's time again for us to run model predict.
+
+We know we should be able to beat the performance.
+
+That's not hard.
+
+Uh, but we're now hoping.
+
+I mean, we're going to be close to this.
+
+It would be nice if we could beat GPT four one nano.
+
+that would certainly be quite satisfying.
+
+Let's see what happens.
+
+Well, it hasn't started.
+
+Well.
+
+We've got a yellow and a red to start with.
+
+Well I will, I will see you closer to the time, closer to the big reveal.
+
+See you in a second.
+
+Okay, so we see some reds, yellows and greens.
+
+We're coming up to the end.
+
+Looks promising.
+
+There's a lot of greens there.
+
+Three more to go.
+
+Here we go, here we go, here we go, here come the results.
+
+And holy moly there we have the results 39 and 8539 .85.
+
+Let's write that down 39.85.
+
+What does that mean.
+
+That means that this model just outperformed every single other model that we have tested.
+
+This model just crushed not only not only did it do better than what I was driving for GPT four one
+
+nano, but it crushed every frontier model Gemini three.
+
+Nope.
+
+Claude 4.5 opus.
+
+Nope.
+
+G 5.1.
+
+Considered the strongest model on the planet as of.
+
+For me right now.
+
+Nope.
+
+We beat it.
+
+It scored.
+
+Uh, what was it, 44.74?
+
+And we crushed it with our own homegrown model.
+
+We just got a three handle and we got 39.85.
+
+We got it into the 30s.
+
+Wow.
+
+Wow.
+
+Now, you might be completely mind blown by this.
+
+How is it?
+
+How is it conceivable that a model with so few parameters, a four bit quantize llama 3.2 model that
+
+could fit on a mobile phone with with these these adapters that we've we've got that still just a fraction
+
+of the size.
+
+How could that have performed better than a frontier model that's had $100 million worth of training.
+
+Well, that's, uh, that's something for us to discuss.
+
+But but before we do that, let's just take a moment to just marvel and celebrate the success of this
+
+result.
+
+This is an astonishing result.
+
+We have just built a solution to our commercial problem that has beaten the frontier.
+
+This is the strongest model at predicting the price of goods according to our test set, the strongest
+
+model on the planet.
+
+And of course, to bring bring it back to to ground.
+
+Before I get too overexcited about this, you need to keep in mind what we've achieved here is we've
+
+been able to make an LLM be the strongest model on the planet at a very specific business task, with
+
+a lot of very specific data.
+
+So, you know, the the point is that fine tuning gives us this ability, given a concrete task, to
+
+do really, really well at it.
+
+In fact, better than a frontier model with hundreds of millions of dollars of training, because we've
+
+made it specifically better for that task.
+
+And that allows you to achieve superior performance to the top frontier models for your task.
+
+If you have data and that's that's where fine tuning really excels.
+
+It's at building a skill, a particular expertise that can generalize outside its training data.
+
+If you have enough of that proprietary data like we had here.
+
+So, you know, with that in mind, maybe it's not so shocking that we manage to do it.
+
+It's still really satisfying though, and it's great to have got this point of 39.85 beating frontier
+
+models at our task, and it only remains for me now to reveal the the chart that we like looking at.
+
+Here is the chart with our latest results in it.
+
+So what we see here of course is the original traditional ML then the disappointing end results and
+
+then the the traditional neural network and then not traditional, but like a modern neural network.
+
+And then the results from a series of different frontier models.
+
+The the GPT 4.1 nano fine tuned, which did a terrible job, then the deep neural network that did a
+
+really good job.
+
+Uh, and then the base llama, the fine tuned just with one hour of training, which did fine.
+
+It beats, uh, the fine tuned GPT four one nano.
+
+It beat editor, but it didn't do better than even even a simple vanilla neural network.
+
+But.
+
+But when we fine tuned a model based on all of our data for for many hours for two epochs, as it turns
+
+out, because at the end of the second epoch, the snapshot that we took, we were able to beat everything
+
+else on the board.
+
+We got into the 30s just we scraped into the 30s with this astounding result, and that is a really
+
+satisfying conclusion to week seven.
+
+And with that, that is a wrap on week seven.
+
+We've completed it.
+
+We beat the frontier, which is really what I set out to do.
+
+And we did it.
+
+And you may wonder, what is the assignment for you?
+
+Of course, there's an assignment for you.
+
+The assignment for you is to come in now and beat me.
+
+That 39 number you've got.
+
+I haven't done that much hyperparameter optimization.
+
+There is juice in there.
+
+There is room.
+
+I am waiting for you to beat me.
+
+Come in, run some runs, experiment and explore and see if you can't get it down into the lower in
+
+the 30s.
+
+I'm sure it's possible if I get there first.
+
+And of course I will.
+
+I will update the, uh, the materials to to boast about it.
+
+I'll probably put it in the, in the repo so you can see my latest.
+
+Um, and I'll keep sharing anything I do to get better.
+
+But the challenge for you do some hyperparameter optimization.
+
+Look for ways.
+
+Often the biggest use comes from manipulating the data in some way to be able to teach it better.
+
+So that's something.
+
+Something to keep in mind.
+
+All right.
+
+But now celebrating your success as we wrap up week seven, not only not only can you generate text
+
+and code, use tools, use assistants, not only can you build with Rag, follow a five step strategy
+
+to solving a business problem with LMS.
+
+Fine tune a frontier model.
+
+But now you can confidently carry out the process to fine tune an open source model so that it can perform
+
+well in a commercial task.
+
+And if you have enough data and if you have a clear enough objective, then guess what?
+
+You can beat frontier level performance.
+
+You can be better than GPT 5.1 at your task.
+
+Wow.
+
+Okay, so if you thought that this week was as good as it gets, if you thought this was just brilliant,
+
+I hope you did, I did.
+
+Then I have news for you.
+
+Next week is even better.
+
+I know that sounds hard to believe, but it is.
+
+Next week is when, first of all, we do some really interesting stuff about Productionizing.
+
+When we take this model we built, and we use the serverless AI platform to make it be up on the internet
+
+so that we can call it remotely from anywhere.
+
+We're also going to build a large scale Rag pipeline.
+
+We're going to go back to Rag for this specific the same problem.
+
+You get sick of this problem.
+
+But but we are going to use Rag because it's such a great use case for rag.
+
+And then finally we're going to build an agentic solution a genetic AI, all the rage.
+
+I have a separate course on genetic AI, but in this one we're going to build one from scratch and it's
+
+going to use our model.
+
+It's going to use a ton of stuff, and it's going to give you a fitting finale that will blow your mind.
+
+You need to get some sleep because it's a lot happened this week.
+
+You've got a lot done.
+
+Hopefully you beat my numbers as well.
+
+Get some some rest and recharge and come back ready to go for week eight.
+
+I'll see you then.

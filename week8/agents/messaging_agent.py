@@ -10,7 +10,8 @@ pushover_url = "https://api.pushover.net/1/messages.json"
 class MessagingAgent(Agent):
     name = "Messaging Agent"
     color = Agent.WHITE
-    MODEL = "claude-sonnet-4-5"
+    # OpenRouter: Anthropic Claude Sonnet 4.6 (api_base + api_key force OpenRouter)
+    MODEL = "openrouter/anthropic/claude-sonnet-4.6"
 
     def __init__(self):
         """
@@ -19,14 +20,21 @@ class MessagingAgent(Agent):
         whichever is specified in the constants
         """
         self.log("Messaging Agent is initializing")
-        self.pushover_user = os.getenv("PUSHOVER_USER", "your-pushover-user-if-not-using-env")
-        self.pushover_token = os.getenv("PUSHOVER_TOKEN", "your-pushover-user-if-not-using-env")
-        self.log("Messaging Agent has initialized Pushover and Claude")
+        self.pushover_user = os.getenv("PUSHOVER_USER", "")
+        self.pushover_token = os.getenv("PUSHOVER_TOKEN", "")
+        if self.pushover_user and self.pushover_token:
+            self.log("Messaging Agent has initialized Pushover (notifications enabled)")
+        else:
+            self.log("Messaging Agent ready (set PUSHOVER_USER and PUSHOVER_TOKEN for push notifications)")
 
     def push(self, text):
         """
-        Send a Push Notification using the Pushover API
+        Send a Push Notification using the Pushover API.
+        Requires PUSHOVER_USER and PUSHOVER_TOKEN in environment.
         """
+        if not self.pushover_user or not self.pushover_token:
+            self.log("Skipping push notification (PUSHOVER_USER / PUSHOVER_TOKEN not set)")
+            return
         self.log("Messaging Agent is sending a push notification")
         payload = {
             "user": self.pushover_user,
@@ -59,6 +67,8 @@ class MessagingAgent(Agent):
             messages=[
                 {"role": "user", "content": user_prompt},
             ],
+            api_base="https://openrouter.ai/api/v1",
+            api_key=os.getenv("OPENROUTER_API_KEY"),
         )
         return response.choices[0].message.content
 
